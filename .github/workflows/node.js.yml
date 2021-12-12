@@ -23,8 +23,10 @@ jobs:
       - name: UI Testing
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node }}
+          node-version: ${{ matrix.node }}   
       - run: sudo apt-get update
+      - run: sudo apt update
+      - run: sudo apt install firefoxdriver
       - run: sudo apt install firefox
       - run: sudo apt-get --only-upgrade install google-chrome-stable
       - run: npx webdriver-manager update
