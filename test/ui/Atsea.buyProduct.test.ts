@@ -1,11 +1,11 @@
 import { browser, $, ExpectedConditions } from 'protractor';
-import { post } from 'superagent';
+import { del } from 'superagent';
+import { StatusCodes } from 'http-status-codes';
 import * as chai from 'chai';
 const expect = chai.expect
 import * as Module from '../../src/test-ui';
 import { protractor } from 'protractor/built/ptor';
 
-let userName = 0;
 let urlBase = "http://3.16.232.152:8080";
 
 describe('Buying a Product', () => {
@@ -13,28 +13,22 @@ describe('Buying a Product', () => {
     beforeEach(async () => {
       await browser.get(urlBase);
       await browser.sleep(3000);
-      userName = Math.floor(Math.random() * 10000);
-      const customer = {
-        "customerId" : 0,
-        "name"       : "Sally Vallery",
-        "address"    : "144 Townsend, San Francisco 99999",
-        "email"      : "sally@example.com",
-        "phone"      : "513 222 5555",
-        "username"   : userName.toString(),
-        "password"   : "sallypassword",
-        "enabled"    : "true",
-        "role"       : "USER"
-      };
-      await post(`${urlBase}/api/customer/`)
-        .set('User-Agent', 'agent')
-        .set('Content-Type', 'application/json')
-        .send(customer)
-        .catch( error => { console.log(error.message)});
     });
 
     it('Checking the title', async () => {
       const title = await browser.getTitle();
       expect(title).to.equal('Atsea Shop');
+    });
+  });
+
+  describe('Delete customers', () => {
+    let response;
+    before(async () => {
+      response = await del(`${urlBase}/api/customer/`)
+        .set('User-Agent', 'agent')
+    });
+    it('Customers successfully delated ', () => {
+      expect(response.status).to.equal(StatusCodes.NO_CONTENT);
     });
   });
 
@@ -57,7 +51,7 @@ describe('Buying a Product', () => {
 
     const addItem: Module.AddItem = new Module.AddItem();
 
-    it("Experimental added to the cart", async () => {
+    it("Product added to the cart", async () => {
       await addItem.addItem();
     });
   });
