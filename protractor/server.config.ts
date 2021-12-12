@@ -14,7 +14,7 @@ const firefoxConfig = {
 const chromeConfig = {
   browserName: 'chrome',
   chromeOptions: {
-    binary: "/usr/bin/google-chrome",
+    //binary: "/usr/bin/google-chrome",
     args: ['--headless', 
     '--disable-gpu', 
     '--window-size=1920,1080']
