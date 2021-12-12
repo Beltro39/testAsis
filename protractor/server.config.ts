@@ -8,6 +8,7 @@ const firefoxConfig = {
   },
   name: 'firefox-tests',
   shardTestFiles: true,
+  marionette: true,
   maxInstances: 1
 };
 
