@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "webdriver": "webdriver-manager update",
     "tsc": "./node_modules/typescript/bin/tsc",
     "test": "mocha",
     "clean": "rm -rf dist mochawesome-reports",
