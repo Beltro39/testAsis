@@ -4,7 +4,7 @@
 name: Repository Dispatch
 on:
   repository_dispatch:
-    types: [run-test ]
+    types: [run-test]
 jobs:
   build:
 
