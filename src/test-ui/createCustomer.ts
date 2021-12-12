@@ -7,12 +7,12 @@ export class CreateCustomer {
 
   constructor () {
     this.createUser = $('.createFormButton > button:nth-child(1)');
-    this.username = Math.random().toString(36).substring(7).charAt(0)
+    this.username = 'sallyv'
   }
 
   public async createCustomer(): Promise<void> {
     await $('.createFormRow > div:nth-child(1) > div > input').sendKeys(this.username);
-    await $('.createFormRow > div:nth-child(2) > div > input').sendKeys('FinalWork');
+    await $('.createFormRow > div:nth-child(2) > div > input').sendKeys('sallypassword');
     await this.createUser.click();
   }
 
