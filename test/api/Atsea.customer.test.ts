@@ -1,5 +1,4 @@
-import pkg from 'superagent';
-const { post, get, put, del } = pkg;
+import { post, get, put, del } from 'superagent';
 import { StatusCodes } from 'http-status-codes';
 import * as chai from 'chai';
 
