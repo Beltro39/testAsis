@@ -16,8 +16,14 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm install
       - name: API Testing 
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
       - run: npm run test:api
       - name: UI Testing
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
       - run: sudo apt-get update
       - run: sudo apt-get --only-upgrade install google-chrome-stable
       - run: npx webdriver-manager start --detach
