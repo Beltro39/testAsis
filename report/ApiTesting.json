@@ -1,0 +1,705 @@
+{
+  "stats": {
+    "suites": 18,
+    "tests": 15,
+    "passes": 15,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-12-12T02:14:45.171Z",
+    "end": "2021-12-12T02:14:48.032Z",
+    "duration": 2861,
+    "testsRegistered": 15,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "60be5c19-7ccf-44ee-8db3-6262b37b502b",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "223cf812-ca9b-4537-80af-8e0000ff5b28",
+          "title": "Create customer tests",
+          "fullFile": "/home/juaerestrepovel/Documentos/Proyectos/PERFICIENT/testAsis/test/api/Atsea.customer.test.js",
+          "file": "/test/api/Atsea.customer.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "c04250e6-460b-434a-babe-94091a538b2e",
+              "title": "Creating customer",
+              "fullFile": "/home/juaerestrepovel/Documentos/Proyectos/PERFICIENT/testAsis/test/api/Atsea.customer.test.js",
+              "file": "/test/api/Atsea.customer.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Customer is created",
+                  "fullTitle": "Create customer tests Creating customer Customer is created",
+                  "timedOut": false,
+                  "duration": 242,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const customer = {\n  \"customerId\" : 0,\n  \"name\"       : \"Sally Vallery\",\n  \"address\"    : \"144 Townsend, San Francisco 99999\",\n  \"email\"      : \"sally@example.com\",\n  \"phone\"      : \"513 222 5555\",\n  \"username\"   : \"sallyv\",\n  \"password\"   : \"sallypassword\",\n  \"enabled\"    : \"true\",\n  \"role\"       : \"USER\"\n};\ncustomerName = customer.name;\ncustomerUsername = customer.username;\nconst response = await post(`${urlBase}/api/customer/`)\n    .set('User-Agent', 'agent')\n    .set('Content-Type', 'application/json')\n    .send(customer);\nexpect(response.status).to.equal(StatusCodes.CREATED);\nexpect(response.body).to.have.property('customerId');\ncustomerId = response.body.customerId;",
+                  "err": {},
+                  "uuid": "f243658a-c181-4717-a14b-7bf0d735a189",
+                  "parentUUID": "c04250e6-460b-434a-babe-94091a538b2e",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "f243658a-c181-4717-a14b-7bf0d735a189"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 242,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            },
+            {
+              "uuid": "3e7c1737-7000-487a-8c24-85f876a1ffb2",
+              "title": "Creating an invalid customer",
+              "fullFile": "/home/juaerestrepovel/Documentos/Proyectos/PERFICIENT/testAsis/test/api/Atsea.customer.test.js",
+              "file": "/test/api/Atsea.customer.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Customer is not created",
+                  "fullTitle": "Create customer tests Creating an invalid customer Customer is not created",
+                  "timedOut": false,
+                  "duration": 190,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const customer = {\n    \"customerId\": customerId,\n    \"name\": customerName,\n    \"address\": \"144 Townsend, San Francisco 99999\",\n    \"email\": \"sally@example.com\",\n    \"phone\": \"513 222 5555\",\n    \"username\": customerUsername,\n    \"password\": \"sallypassword\",\n    \"enabled\": \"true\",\n    \"role\": \"USER\"\n};\nawait post(`${urlBase}/api/customer/`)\n    .set('User-Agent', 'agent')\n    .set('Content-Type', 'application/json')\n    .send(customer)\n    .catch(error => {\n        expect(error.status).to.equal(StatusCodes.CONFLICT);\n    })",
+                  "err": {},
+                  "uuid": "7f1b7807-2c19-4720-9e5b-03affe8d0e65",
+                  "parentUUID": "3e7c1737-7000-487a-8c24-85f876a1ffb2",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "7f1b7807-2c19-4720-9e5b-03affe8d0e65"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 190,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 5000
+        },
+        {
+          "uuid": "fbce3559-c9b9-48c0-a4cc-60b51590b5b8",
+          "title": "Get customer tests",
+          "fullFile": "/home/juaerestrepovel/Documentos/Proyectos/PERFICIENT/testAsis/test/api/Atsea.customer.test.js",
+          "file": "/test/api/Atsea.customer.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "7485d552-0d8d-4812-aab3-b1776f6ac3f0",
+              "title": "Getting a customer with a valid id",
+              "fullFile": "/home/juaerestrepovel/Documentos/Proyectos/PERFICIENT/testAsis/test/api/Atsea.customer.test.js",
+              "file": "/test/api/Atsea.customer.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Customer obtained",
+                  "fullTitle": "Get customer tests Getting a customer with a valid id Customer obtained",
+                  "timedOut": false,
+                  "duration": 200,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await get(`${urlBase}/api/customer/${customerId}`)\n    .set('User-Agent', 'agent')\n    .set('Content-Type', 'application/json')\nexpect(response.status).to.equal(StatusCodes.OK);\nexpect(response.body).to.have.property('customerIf');\nexpect(response.body.customerIf).to.equal(customerId);",
+                  "err": {},
+                  "uuid": "8859b78f-29a3-49e4-adae-b446e213ad15",
+                  "parentUUID": "7485d552-0d8d-4812-aab3-b1776f6ac3f0",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "8859b78f-29a3-49e4-adae-b446e213ad15"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 200,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            },
+            {
+              "uuid": "bfe89a3b-819a-4683-bde5-5e1c550faf1d",
+              "title": "Getting a customer with an invalid id",
+              "fullFile": "/home/juaerestrepovel/Documentos/Proyectos/PERFICIENT/testAsis/test/api/Atsea.customer.test.js",
+              "file": "/test/api/Atsea.customer.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Customer was not obtained",
+                  "fullTitle": "Get customer tests Getting a customer with an invalid id Customer was not obtained",
+                  "timedOut": false,
+                  "duration": 186,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "await get(`${urlBase}/api/customer/${notFoundId}`)\n    .set('User-Agent', 'agent')\n    .set('Content-Type', 'application/json')\n    .catch(error => {\n        expect(error.status).to.equal(StatusCodes.NOT_FOUND);\n    });",
+                  "err": {},
+                  "uuid": "e159a78c-bc44-492d-afdb-d3dad4cfe46e",
+                  "parentUUID": "bfe89a3b-819a-4683-bde5-5e1c550faf1d",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e159a78c-bc44-492d-afdb-d3dad4cfe46e"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 186,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            },
+            {
+              "uuid": "f6322718-b0f5-45b4-96e3-6c62ac999d97",
+              "title": "Getting a customer with valid name",
+              "fullFile": "/home/juaerestrepovel/Documentos/Proyectos/PERFICIENT/testAsis/test/api/Atsea.customer.test.js",
+              "file": "/test/api/Atsea.customer.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Customer obtained",
+                  "fullTitle": "Get customer tests Getting a customer with valid name Customer obtained",
+                  "timedOut": false,
+                  "duration": 181,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await get(`${urlBase}/api/customer/name=${customerName}`)\n    .set('User-Agent', 'agent')\n    .set('Content-Type', 'application/json');\nexpect(response.status).to.equal(StatusCodes.OK);\nexpect(response.body).to.have.property('name');\nexpect(response.body.name).to.equal(customerName);",
+                  "err": {},
+                  "uuid": "59bad2e1-53f3-42a0-8d21-a84ce5069aba",
+                  "parentUUID": "f6322718-b0f5-45b4-96e3-6c62ac999d97",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "59bad2e1-53f3-42a0-8d21-a84ce5069aba"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 181,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            },
+            {
+              "uuid": "d9204ffb-d83b-490b-bc7f-87c60ecd6bed",
+              "title": "Getting a customer with an invalid name",
+              "fullFile": "/home/juaerestrepovel/Documentos/Proyectos/PERFICIENT/testAsis/test/api/Atsea.customer.test.js",
+              "file": "/test/api/Atsea.customer.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Customer was not obtained",
+                  "fullTitle": "Get customer tests Getting a customer with an invalid name Customer was not obtained",
+                  "timedOut": false,
+                  "duration": 184,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "await get(`${urlBase}/api/customer/name=${notFoundName}`)\n    .set('User-Agent', 'agent')\n    .set('Content-Type', 'application/json')\n    .catch(error => {\n        expect(error.status).to.equal(StatusCodes.NOT_FOUND);\n    });",
+                  "err": {},
+                  "uuid": "3ba320a0-5061-4051-9ec1-17456181f2a4",
+                  "parentUUID": "d9204ffb-d83b-490b-bc7f-87c60ecd6bed",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "3ba320a0-5061-4051-9ec1-17456181f2a4"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 184,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            },
+            {
+              "uuid": "a2b2cd48-03f5-46e2-ad8a-77e7cff41879",
+              "title": "Getting a customer with valid username",
+              "fullFile": "/home/juaerestrepovel/Documentos/Proyectos/PERFICIENT/testAsis/test/api/Atsea.customer.test.js",
+              "file": "/test/api/Atsea.customer.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Customer obtained",
+                  "fullTitle": "Get customer tests Getting a customer with valid username Customer obtained",
+                  "timedOut": false,
+                  "duration": 170,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await get(`${urlBase}/api/customer/username=${customerUsername}`)\n    .set('User-Agent', 'agent')\n    .set('Content-Type', 'application/json');\nexpect(response.status).to.equal(StatusCodes.OK);\nexpect(response.body).to.have.property('username');\nexpect(response.body.username).to.equal(customerUsername);",
+                  "err": {},
+                  "uuid": "dac8bd3b-88df-4630-8359-fcc629e779ae",
+                  "parentUUID": "a2b2cd48-03f5-46e2-ad8a-77e7cff41879",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "dac8bd3b-88df-4630-8359-fcc629e779ae"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 170,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            },
+            {
+              "uuid": "c9f080d1-d121-4c8b-bebc-4c613dfff711",
+              "title": "Getting a customer with an invalid username",
+              "fullFile": "/home/juaerestrepovel/Documentos/Proyectos/PERFICIENT/testAsis/test/api/Atsea.customer.test.js",
+              "file": "/test/api/Atsea.customer.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Customer was not obtained",
+                  "fullTitle": "Get customer tests Getting a customer with an invalid username Customer was not obtained",
+                  "timedOut": false,
+                  "duration": 180,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "await get(`${urlBase}/api/customer/username=${notFoundUsername}`)\n    .set('User-Agent', 'agent')\n    .set('Content-Type', 'application/json')\n    .catch(error => {\n        expect(error.status).to.equal(StatusCodes.NOT_FOUND);\n    });",
+                  "err": {},
+                  "uuid": "7df6f842-81b8-46cb-b797-c9f7e22aa426",
+                  "parentUUID": "c9f080d1-d121-4c8b-bebc-4c613dfff711",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "7df6f842-81b8-46cb-b797-c9f7e22aa426"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 180,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 5000
+        },
+        {
+          "uuid": "d7761cbd-5ce6-4109-b436-bfc4f4f43978",
+          "title": "Update customer tests",
+          "fullFile": "/home/juaerestrepovel/Documentos/Proyectos/PERFICIENT/testAsis/test/api/Atsea.customer.test.js",
+          "file": "/test/api/Atsea.customer.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "b3d370d1-9305-41a6-a976-ccbcfcd072a3",
+              "title": "Updating a valid customer",
+              "fullFile": "/home/juaerestrepovel/Documentos/Proyectos/PERFICIENT/testAsis/test/api/Atsea.customer.test.js",
+              "file": "/test/api/Atsea.customer.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Customer updated",
+                  "fullTitle": "Update customer tests Updating a valid customer Customer updated",
+                  "timedOut": false,
+                  "duration": 179,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const customer = {\n    \"customerId\": customerId,\n    \"name\": \"Sally Vallery\",\n    \"address\": \"my new address\",\n    \"email\": \"sally@example.com\",\n    \"phone\": \"phone as string\",\n    \"username\": \"sallyv\",\n    \"password\": \"sallynewpassword\",\n    \"enabled\": \"true\",\n    \"role\": \"USER\"\n};\nconst response = await put(`${urlBase}/api/customer/${customerId}`)\n    .set('User-Agent', 'agent')\n    .set('Content-Type', 'application/json')\n    .send(customer);\nexpect(response.status).to.equal(StatusCodes.OK);\nexpect(response.body).to.have.property('customerId');\nexpect(response.body.address).to.equal(customer.address);\nexpect(response.body.phone).to.equal(customer.phone);\nexpect(response.body.password).to.equal(customer.password);",
+                  "err": {},
+                  "uuid": "3dfd4488-0018-48b6-aee3-c4945c8bd717",
+                  "parentUUID": "b3d370d1-9305-41a6-a976-ccbcfcd072a3",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "3dfd4488-0018-48b6-aee3-c4945c8bd717"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 179,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            },
+            {
+              "uuid": "74231f9f-0e35-406e-a715-1fc143dc8bb2",
+              "title": "Updating a valid customer",
+              "fullFile": "/home/juaerestrepovel/Documentos/Proyectos/PERFICIENT/testAsis/test/api/Atsea.customer.test.js",
+              "file": "/test/api/Atsea.customer.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Customer updated",
+                  "fullTitle": "Update customer tests Updating a valid customer Customer updated",
+                  "timedOut": false,
+                  "duration": 183,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const customer = {\n    \"customerId\": notFoundId,\n    \"name\": \"Sally Vallery\",\n    \"address\": \"my new address\",\n    \"email\": \"sally@example.com\",\n    \"phone\": \"phone as string\",\n    \"username\": \"sallyv\",\n    \"password\": \"sallynewpassword\",\n    \"enabled\": \"true\",\n    \"role\": \"USER\"\n};\nawait put(`${urlBase}/api/customer/${notFoundId}`)\n    .set('User-Agent', 'agent')\n    .set('Content-Type', 'application/json')\n    .send(customer)\n    .catch(error => {\n        expect(error.status).to.equal(StatusCodes.NOT_FOUND);\n    });",
+                  "err": {},
+                  "uuid": "800ae7a6-f2ef-4b4b-a934-fca880ac3175",
+                  "parentUUID": "74231f9f-0e35-406e-a715-1fc143dc8bb2",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "800ae7a6-f2ef-4b4b-a934-fca880ac3175"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 183,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 5000
+        },
+        {
+          "uuid": "dbff530f-3271-457a-ac55-1af840c9cf60",
+          "title": "Delete customer tests",
+          "fullFile": "/home/juaerestrepovel/Documentos/Proyectos/PERFICIENT/testAsis/test/api/Atsea.customer.test.js",
+          "file": "/test/api/Atsea.customer.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "f326288e-d1ac-47ad-8e14-9919b0bd8516",
+              "title": "Deleting a customer with a valid id",
+              "fullFile": "/home/juaerestrepovel/Documentos/Proyectos/PERFICIENT/testAsis/test/api/Atsea.customer.test.js",
+              "file": "/test/api/Atsea.customer.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Customer deleted",
+                  "fullTitle": "Delete customer tests Deleting a customer with a valid id Customer deleted",
+                  "timedOut": false,
+                  "duration": 189,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await del(`${urlBase}/api/customer/${customerId}`)\n    .set('User-Agent', 'agent')\n    .set('Content-Type', 'application/json');\nexpect(response.status).to.equal(StatusCodes.NO_CONTENT);",
+                  "err": {},
+                  "uuid": "51708854-6856-4aee-a0a0-accebc97596e",
+                  "parentUUID": "f326288e-d1ac-47ad-8e14-9919b0bd8516",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "51708854-6856-4aee-a0a0-accebc97596e"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 189,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            },
+            {
+              "uuid": "b0923203-6492-4d3e-8397-5465a421ddff",
+              "title": "Deleting a customer by an invalid id",
+              "fullFile": "/home/juaerestrepovel/Documentos/Proyectos/PERFICIENT/testAsis/test/api/Atsea.customer.test.js",
+              "file": "/test/api/Atsea.customer.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Customer was not deleted",
+                  "fullTitle": "Delete customer tests Deleting a customer by an invalid id Customer was not deleted",
+                  "timedOut": false,
+                  "duration": 179,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "await del(`${urlBase}/api/customer/${notFoundId}`)\n    .set('User-Agent', 'agent')\n    .set('Content-Type', 'application/json')\n    .catch(error => {\n        expect(error.status).to.equal(StatusCodes.NOT_FOUND);\n    });",
+                  "err": {},
+                  "uuid": "881048e6-7775-4201-9893-b4475c6c5c5a",
+                  "parentUUID": "b0923203-6492-4d3e-8397-5465a421ddff",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "881048e6-7775-4201-9893-b4475c6c5c5a"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 179,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            },
+            {
+              "uuid": "ec579ccb-5831-4662-b3c9-8565bd0feefe",
+              "title": "Deleting all customers",
+              "fullFile": "/home/juaerestrepovel/Documentos/Proyectos/PERFICIENT/testAsis/test/api/Atsea.customer.test.js",
+              "file": "/test/api/Atsea.customer.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "All customers were deleted",
+                  "fullTitle": "Delete customer tests Deleting all customers All customers were deleted",
+                  "timedOut": false,
+                  "duration": 179,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await del(`${urlBase}/api/customer/`)\n    .set('User-Agent', 'agent')\n    .set('Content-Type', 'application/json');\nexpect(response.status).to.equal(StatusCodes.NO_CONTENT);",
+                  "err": {},
+                  "uuid": "cca23282-9208-466c-a547-d41db553a510",
+                  "parentUUID": "ec579ccb-5831-4662-b3c9-8565bd0feefe",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "cca23282-9208-466c-a547-d41db553a510"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 179,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 5000
+        },
+        {
+          "uuid": "b4fff04f-acfd-4750-9d79-b77f226cb15a",
+          "title": "Product Requests",
+          "fullFile": "/home/juaerestrepovel/Documentos/Proyectos/PERFICIENT/testAsis/test/api/Atsea.product.test.js",
+          "file": "/test/api/Atsea.product.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Get all products",
+              "fullTitle": "Product Requests Get all products",
+              "timedOut": false,
+              "duration": 179,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await get(`${urlBase}/api/product/`)\n.set('User-Agent', 'agent')\n.set('Content-Type', 'application/json');\nexpect(response.status).to.equal(StatusCodes.OK);",
+              "err": {},
+              "uuid": "f62bb9cf-b917-4060-94b0-b5b8f1f19a9c",
+              "parentUUID": "b4fff04f-acfd-4750-9d79-b77f226cb15a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Get single product",
+              "fullTitle": "Product Requests Get single product",
+              "timedOut": false,
+              "duration": 172,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const id = 1;\nconst response = await get(`${urlBase}/api/product/${id}/`)\n.set('User-Agent', 'agent')\n.set('Content-Type', 'application/json');;\nexpect(response.status).to.equal(StatusCodes.OK);\nexpect(JSON.parse(response.text).productId).to.equal(id);",
+              "err": {},
+              "uuid": "bbf72bf8-b2bc-431e-b714-7b3d9abb1d10",
+              "parentUUID": "b4fff04f-acfd-4750-9d79-b77f226cb15a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f62bb9cf-b917-4060-94b0-b5b8f1f19a9c",
+            "bbf72bf8-b2bc-431e-b714-7b3d9abb1d10"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 351,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 5000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 5000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "9.1.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "ApiTesting",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "report",
+        "reportFilename": "ApiTesting"
+      },
+      "version": "6.0.1"
+    }
+  }
+}
