@@ -2,7 +2,7 @@ import { Config, browser } from 'protractor';
 
 const firefoxConfig = {
   browserName: 'firefox',
-  firefoxOptions: {
+  'moz:firefoxOptions': {
     args: ['--headless', 
     '--disable-gpu']
   },
