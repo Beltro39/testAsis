@@ -38,7 +38,6 @@ jobs:
           node-version: ${{ matrix.node }}   
       - run: sudo apt-get update
       - run: sudo apt update
-      - run: sudo apt install firefoxdriver -y
       - run: sudo apt install firefox
       - run: sudo apt-get --only-upgrade install google-chrome-stable
       - run: npx webdriver-manager update
