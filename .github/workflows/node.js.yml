@@ -28,5 +28,5 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm run test:api
       - name: Upload reports to AWS bucket
-        run: aws s3 sync ./mochawesome-report ${{ secrets.AWS_BUCKET }}/api-tests-report
+        run: aws s3 sync ./mochawesome-reports ${{ secrets.AWS_BUCKET }}/api-tests-report
         if: ${{ always() }}
