@@ -9,7 +9,7 @@
     "test": "mocha",
     "clean": "rm -rf dist mochawesome-reports",
     "build": "npm run clean && tsc",
-    "test:api": "npm run build && mocha -t 5000 --reporter mochawesome --recursive dist/test/api/*.js --reporter-options reportDir=report,reportFilename=ApiTesting",
+    "test:api": "npm run build && mocha -t 5000 --reporter mochawesome --recursive dist/test/api/*.js --reporter-options reportDir=mochawesome-reports,reportFilename=mochawesome",
     "test:ui": "npm run build && protractor dist/protractor/server.config.js"
   },
   "repository": {
