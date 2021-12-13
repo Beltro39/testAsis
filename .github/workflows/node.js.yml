@@ -15,10 +15,18 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm install
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+      - run: npm ci
       - name: API Testing 
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
       - run: npm run test:api
-      
-      
+      - name: Upload reports to AWS bucket
+      - run: aws s3 sync ./mochawesome-report ${{ secrets.AWS_BUCKET }}/api-tests-report
+        if: ${{ always() }}
