@@ -3,12 +3,11 @@ import { Config, browser } from 'protractor';
 const firefoxConfig = {
   browserName: 'firefox',
   'moz:firefoxOptions': {
-    args: ['--headless', 
-    '--disable-gpu']
+	  args: [ "--headless"]
   },
   name: 'firefox-tests',
   shardTestFiles: true,
-  marionette: false,
+  marionette: true,
   maxInstances: 1
 };
 
