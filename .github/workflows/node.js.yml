@@ -5,6 +5,8 @@ name: Repository Dispatch
 on:
   repository_dispatch:
     types: [run-test]
+  push:
+    branches: [ main ]  
 jobs:
   build:
     runs-on: ubuntu-latest
